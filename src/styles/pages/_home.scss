@@ -5,10 +5,19 @@
     height: 100%;
     &__head {
       height: 20%;
+      
+      &--logo{
+        margin: 0 auto;
+        width: 25%;
+        img{
+          width: 15vh;
+        }
+      }
     }
     &__body {
+      transition: 150ms ease-in-out;
       height: 60%;
-      margin-left: 7vh;
+      margin-left: 6vh;
       &--slogan {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-weight: 700;
@@ -19,9 +28,64 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-size: 1rem;
       }
+      &--login{
+        margin: 0 0 0 9vh;
+        color: #3a2c8d;
+        display: none;
+      }
     }
     &__footer {
       height: 20%;
+      margin-left: 5vw;
+      margin-right: 5vw;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #3a2c8d;
+      ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        li {
+          transition: 150ms ease-in-out;
+        }
+        li:hover {
+          transform: translateY(-1vh);
+        }
+      }
+      .icon {
+        width: 5vh;
+      }
     }
   }
+  &__right{
+    height: 100%;
+    background-color: #3a2c8d;
+    &__head{
+      height: 10%;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-top: 2vh;
+      h2{color:#fff;}
+    }
+    &__body{
+      height: 60%;
+      width: 100%;
+      &--slideShow{
+        img{
+          max-width: 100%;
+        }
+      }
+    }
+    &__footer{
+      height: auto;
+    }
+  }
+}
+.fly-out{
+  transform: translateX(70vh);
+  transition: 250ms ease-in-out;
+}
+.display{
+  display: block;
 }
