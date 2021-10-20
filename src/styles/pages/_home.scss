@@ -1,0 +1,27 @@
+.container {
+  height: 100%;
+  width: 100%;
+  &__left {
+    height: 100%;
+    &__head {
+      height: 20%;
+    }
+    &__body {
+      height: 60%;
+      margin-left: 7vh;
+      &--slogan {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: #3a2c8d;
+      }
+      &--description {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1rem;
+      }
+    }
+    &__footer {
+      height: 20%;
+    }
+  }
+}

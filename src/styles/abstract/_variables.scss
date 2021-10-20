@@ -1,0 +1,23 @@
+$root-color: (
+    blue: #3A2C8D,
+    light: #F0F2F5,
+    dark: #18191A,
+    light-dark: #242526,
+    gray: #3A3B3C,
+    red: #fd5f5c
+);
+
+$colors: (
+    blue: var(--blue-color),
+    light: var(--light-color),
+    dark: var(--dark-color),
+    light-dark: var(--light-dark-color),
+    gray: var(--gray-color),
+    red: var(--red-color),
+);
+
+$font-weight: (
+    300: "Roboto Light"
+    500: "Roboto Medium"
+    700: "Roboto Bold"
+)
