@@ -46,25 +46,25 @@ export default function LayoutHome(props) {
                         <h2>PHÂN HIỆU ĐẠI HỌC THỦY LỢI</h2>
                     </div>
                     <div className='container__right__body'>
-                        <Carousel autoplay>
+                        <Carousel autoplay >
                             <div>
                                 <div className="container__right__body--slideShow">
-                                    <img src="https://wallpapercave.com/uwp/uwp1350290.jpeg" />
+                                    <img src="/assets/image/1.jpg" />
                                 </div>
                             </div>
                             <div>
                                 <div className="container__right__body--slideShow">
-                                    <img src="https://images.wallpaperscraft.com/image/single/eruption_lava_volcano_oriental_cherry_tree_45542_1920x1080.jpg" />
+                                    <img src="/assets/image/2.jpg" />
                                 </div>
                             </div>
                             <div>
                                 <div className="container__right__body--slideShow">
-                                    <img src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg" />
+                                    <img src="/assets/image/3.jpg" />
                                 </div>
                             </div>
                             <div>
                                 <div className="container__right__body--slideShow">
-                                    <img src="https://cdn.pixabay.com/photo/2017/02/08/17/24/fantasy-2049567_960_720.jpg" />
+                                    <img src="/assets/image/4.jpg" />
                                 </div>
                             </div>
                         </Carousel>

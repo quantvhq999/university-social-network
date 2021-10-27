@@ -1,9 +1,19 @@
 import "antd/dist/antd.css";
 import "../styles/antd.less";
 import "../styles/style.scss"
+import { Provider } from "react-redux";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import withReduxStore from "../common/withReduxStore";
+import FetchInitData from "../component/other/FetchInitData";
+
+const MyApp = ({ Component, pageProps, reduxStore }) => {
+  return (
+    <Provider store={reduxStore}>
+      <FetchInitData>
+        <Component {...pageProps} />
+      </FetchInitData>
+    </Provider>
+  )
 }
 
-export default MyApp
+export default withReduxStore(MyApp)
