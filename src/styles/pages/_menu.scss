@@ -1,0 +1,22 @@
+.menu{
+    margin-left: 2vh;
+    &__item{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: #3A2C8D;
+        font-weight: 500;
+        padding: 7px;
+        font-size: 1rem;
+    }
+    &__item:hover{
+        color: #fff;
+        cursor: pointer;
+        border-radius: 3px;
+        background-color: #3A2C8D;
+        box-shadow: 0px 6px 6px 0px rgba(0,0,0,0.07);
+    }
+    span{
+        margin-left: 2vh;
+    }
+}

@@ -1,31 +1,40 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useRouter } from 'next/router'
 import { Row, Col, Input, Badge, Avatar, Menu, Dropdown } from 'antd'
 import { CommentOutlined, BellOutlined, CaretDownOutlined } from '@ant-design/icons'
 
-const menu = (
-    <Menu style={{ textAlign: 'center' }}>
-        <Menu.Item key="0">
-            <a href="#">Trang cá nhân</a>
-        </Menu.Item>
-        <Menu.Divider />
-        <Menu.Item key="1">
-            <a href="#">Đóng góp ý kiến</a>
-        </Menu.Item>
-        <Menu.Divider />
-        <Menu.Item key="2">
-            <a href="#">Cài đặt</a>
-        </Menu.Item>
-        <Menu.Item key="3">
-            <a href="#">Màn hình</a>
-        </Menu.Item>
-        <Menu.Divider />
-        <Menu.Item key="4">
-            <a href="#">Đăng xuất</a>
-        </Menu.Item>
-    </Menu>
-);
+import { logoutRequest } from '../../../redux/actions/authAction'
 
 export default function MenuRight() {
+    const dispatch = useDispatch()
+    const router = useRouter()
+    const handleLogout = async ()=>{
+        dispatch(logoutRequest())
+    }
+    const menu = (
+        <Menu style={{ textAlign: 'center' }}>
+            <Menu.Item key="0">
+                <a href="#">Trang cá nhân</a>
+            </Menu.Item>
+            <Menu.Divider />
+            <Menu.Item key="1">
+                <a href="#">Đóng góp ý kiến</a>
+            </Menu.Item>
+            <Menu.Divider />
+            <Menu.Item key="2">
+                <a href="#">Cài đặt</a>
+            </Menu.Item>
+            <Menu.Item key="3">
+                <a href="#">Màn hình</a>
+            </Menu.Item>
+            <Menu.Divider />
+            <Menu.Item key="4">
+                <a onClick={handleLogout}>Đăng xuất</a>
+            </Menu.Item>
+        </Menu>
+    );
+    
     const [count, setCount] = useState(1)
     // useEffect(() => {
     //     const intervalId = setInterval(() => {
