@@ -13,6 +13,7 @@ export default function HomePage() {
                     <MenuItem/>
                 </Col>
                 <Col span={14}>
+                    Middle
                 </Col>
                 <Col span={5}>
                     Right
