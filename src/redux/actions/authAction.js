@@ -46,6 +46,7 @@ export const logoutRequest = () => {
         dispatch(logout())
         authApis.logoutUser()
     }
+    
 }
 
 export const getUserRequest = (token) => {
