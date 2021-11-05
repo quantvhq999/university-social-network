@@ -38,7 +38,9 @@ export default function Login() {
     return (
         <div>
             <p style={{ fontSize: '1rem', color: '#3a2c8d', fontWeight: '700' }}>Thông tin đăng nhập</p>
-            <Carousel ref={resetPassword}>
+            <div>
+           
+            <Carousel ref={resetPassword} dots="false">
                 <Form
                     name="login"
                     labelCol={{ span: 8 }}
@@ -108,6 +110,7 @@ export default function Login() {
 
                 </Form>
             </Carousel>
+            </div>
         </div>
     )
 }
