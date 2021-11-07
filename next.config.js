@@ -11,3 +11,11 @@ module.exports = withPlugins([[pluginAntdLess]], {
     return config;
   },
 });
+
+module.exports = {
+  rules: [
+    { 
+      test: /\.js$/, 
+      exclude: /node_modules/
+    }]
+}
