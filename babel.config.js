@@ -4,8 +4,8 @@ module.exports = function (api) {
     return {
       presets: [['next/babel']],
       plugins: [
-        ['import', { libraryName: 'antd', style: true }],
-        ['import', { libraryName: 'react-multi-carousel'}]
+        ['antd',{ style: true }],
+        ['react-multi-carousel']
       ],
     };
   };
