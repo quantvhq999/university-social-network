@@ -1,6 +1,6 @@
 import React from 'react'
-//import Carousel from 'react-multi-carousel';
-//import 'react-multi-carousel/lib/styles.css';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import { useDispatch, useSelector } from "react-redux";
 import { Skeleton } from 'antd';
 import ActivitiesItem from './ActivitiesItem';
@@ -29,7 +29,7 @@ export default function Activities() {
 
     return (
         <div>
-            {/* <Carousel
+            <Carousel
                swipeable={false}
                draggable={true}
                responsive={responsive}
@@ -47,7 +47,7 @@ export default function Activities() {
                })
                 : <Skeleton active="true"/>
             }
-            </Carousel> */}
+            </Carousel>
         </div>
     )
 }
