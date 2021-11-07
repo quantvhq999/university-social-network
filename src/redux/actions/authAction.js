@@ -50,14 +50,14 @@ export const logoutRequest = () => {
 }
 
 export const getUserRequest = (token) => {
-    return (dispatch) => {
-        dispatch(fetchUser())
-        authApis.getUserByToken(token).then(
-            (res) => {
-                dispatch(fetchUserSuccess(res))
-            })
-            .catch(() => {
-                dispatch(fetchUserFail())
-            })
-    }
+    // return (dispatch) => {
+    //     dispatch(fetchUser())
+    //     authApis.getUserByToken(token).then(
+    //         (res) => {
+    //             dispatch(fetchUserSuccess(res))
+    //         })
+    //         .catch(() => {
+    //             dispatch(fetchUserFail())
+    //         })
+    // }
 }

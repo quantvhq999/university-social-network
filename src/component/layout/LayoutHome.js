@@ -22,14 +22,16 @@ export default function LayoutHome(props) {
                         <Login/>
                         </div>
                         <div className={body ? '' : 'fly-out'}>
-                            <p className='container__left__body--slogan'>
+                            <p className='container__left__body--slogan' style={{textAlign: "center"}}>
                                 Đoàn kết - Chính trực<br />Tôn trọng - Chất lượng - Khát vọng vươn lên
                             </p>
-                            <p className="container__left__body--description">
+                            <p className="container__left__body--description" style={{textAlign: "center"}} >
                                 Năng động, cập nhật kiến thức và áp dụng sáng tạo trong công việc.
                                 Có đạo đức, lương tâm nghề nghiệp, ý thức kỷ luật và thái độ phục vụ tốt.
                             </p>
+                            <div style={{display: "flex", justifyContent:"center"}}>
                             <Button type="primary" ghost="true" size="large" onClick={() => setBody(!body)}>Đăng nhập</Button>
+                            </div>
                         </div>
                     </div>
                     <div className='container__left__footer'>
