@@ -76,13 +76,13 @@
   left: calc(4% + 1px);
 }
 .react-multiple-carousel__arrow--left::before {
-  content: "\e824";
+  content: "◄";
 }
 .react-multiple-carousel__arrow--right {
   right: calc(4% + 1px);
 }
 .react-multiple-carousel__arrow--right::before {
-  content: "\e825";
+  content: "►";
 }
 .react-multi-carousel-dot-list {
   position: absolute;
