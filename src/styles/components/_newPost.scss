@@ -1,0 +1,32 @@
+.new-post {
+  margin-top: 21px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.07);
+  &__container {
+    margin: 0 100px 0 32px;
+  }
+  .btn_container {
+    margin-top: 10px;
+    .post_btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      color: #3a2c8d;
+      font-weight: 700;
+      border-radius: 5px;
+      padding: 7px;
+      img {
+        max-width: 36px;
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .post_btn:hover {
+    background-color: #3a2c8d;
+    cursor: pointer;
+    color: #fff;
+  }
+}

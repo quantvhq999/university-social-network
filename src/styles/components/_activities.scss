@@ -1,0 +1,27 @@
+.activities-container {
+  width: 243px;
+  height: 19vh;
+  .bold{
+    font-weight: 700;
+  }
+  .activities-item {
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    img {
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+    }
+    p {
+      top: 111px;
+      left: 13px;
+      position: absolute;
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+      z-index: 2;
+      text-shadow: 0px 4px 8px rgba(0,0,0,0.54);
+    }
+  }
+}
