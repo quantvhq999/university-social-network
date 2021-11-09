@@ -8,6 +8,20 @@ export default function Feed(props) {
             <FeedItem />
             <FeedItem />
             <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Avatar, Tooltip, Button, Popover } from 'antd'
-import { MoreOutlined } from "@ant-design/icons"
+import { MoreOutlined, MessageOutlined, CaretUpOutlined, CaretDownOutlined, ShareAltOutlined } from "@ant-design/icons"
 
 
 export default function FeedItem(props) {
@@ -46,10 +46,23 @@ export default function FeedItem(props) {
             </div>
             <div className="feed-item__body">
                 <p>Bạn thân</p>
-                <img src='https://i.stack.imgur.com/H5FjW.png'/>
+                <img src='https://i.stack.imgur.com/H5FjW.png' />
             </div>
             <div className="feed-item__footer">
-                footer
+                <div className="vote">
+                    <div className="vote-btn" style={{fontSize: "1.25rem"}}>
+                        <CaretUpOutlined className="up_arrow" />
+                        <CaretDownOutlined className="down_arrow" />
+                    </div>
+                    <b>360</b>
+                </div>
+                <div className="comment">
+                    <MessageOutlined  /> Bình luận
+
+                </div>
+                <div className="share">
+                    <ShareAltOutlined  /> Chia sẻ
+                </div>
             </div>
         </div>
     )

@@ -1,0 +1,50 @@
+.feed-item__footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.15rem;
+  text-align: center;
+  align-items: center;
+  margin: 1rem;
+  height: 9vh;
+  .vote {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: #3a2c8d;
+    .vote-btn {
+      display: grid;
+      margin-right: 0.75rem;
+      font-size: 2rem !important;
+      .up_arrow,
+      .down_arrow {
+        cursor: pointer;
+        &:active {
+          color: #4ff378;
+        }
+      }
+    }
+  }
+  .comment,
+  .share {
+    color: #3a2c8d;
+    width: 100%;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #322677;
+      color: #fff;
+    }
+  }
+  .comment {
+    &:active {
+      background: #9e8efc;
+    }
+  }
+  .share {
+    &:active {
+      background: #9e8efc;
+    }
+  }
+}
