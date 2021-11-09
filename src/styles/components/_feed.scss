@@ -1,0 +1,47 @@
+.feed-container {
+  height: 50vh;
+  .feed-item {
+    margin-top: 9px;
+    height: auto;
+    box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.07);
+    background: white;
+    border-radius: 6px;
+
+    &__head {
+      display: flex;
+      align-items: center;
+      height: 9vh;
+      .feed-avatar {
+        margin: 1rem;
+      }
+      .feed-name {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 1rem;
+        .name {
+          color: #3a2c8d;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        &__time {
+          font-size: 0.65rem;
+          color: gray;
+        }
+        .more{
+            left: 100%;
+        }
+      }
+    }
+    &__body {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      word-wrap: break-word;
+      img{
+          max-width: 100%;
+      }
+    }
+  }
+}

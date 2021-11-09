@@ -41,7 +41,7 @@ export default function Activities() {
                dotListClass="custom-dot-list-style"
                itemClass="carousel-item-padding-40-px"
             >
-               {activities.data.activities? activities.data.activities.map((item)=>{
+               {activities.data.activities? activities.data.activities.map((item,index)=>{
                    return <ActivitiesItem item={item}/>
                })
                 : <Skeleton active="true"/>

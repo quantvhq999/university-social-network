@@ -1,9 +1,13 @@
 import React from 'react'
+import FeedItem from './FeedItem'
 
-export default function Feed() {
+export default function Feed(props) {
     return (
-        <div>
-            
+        <div className="feed-container">
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
+            <FeedItem />
         </div>
     )
 }
