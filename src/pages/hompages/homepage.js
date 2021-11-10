@@ -8,6 +8,7 @@ import Message from '../../component/message/Message';
 export default function HomePage() {
     return (
         <>
+            <MenuTop/>
             <Row style={{marginTop: '20px'}}>
                 <Col span={5}>
                     <MenuItem/>
