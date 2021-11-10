@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Button, notification, Space } from "antd";
-import {  RadiusBottomleftOutlined, } from '@ant-design/icons';
-const openNotificationWithIcon = (type, message, description) => {
-  notification[type]({
-    message: message,
-    description: description,
-  });
-};
+import { Modal, Button } from "antd";
 
 export default function ActivitiesItem(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -37,16 +30,8 @@ export default function ActivitiesItem(props) {
         footer={[
           <Button type="primary" key="back" onClick={handleCancel}>
             Thoát
-          </Button>,
+          </Button>
          
-          <Button
-            key="submit"
-            type="primary"
-            loading={loading}
-            onClick={ handleOk}
-          >
-            Tham gia
-          </Button>,
         ]}
       >
         <p>{props.item.descriptions}</p>

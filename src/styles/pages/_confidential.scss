@@ -1,0 +1,32 @@
+.confidential-container {
+  margin-top: 21px;
+  .title {
+    margin-left: 2vh;
+    color: #3a2c8d;
+  }
+  .add-btn,
+  .update-btn {
+    width: 100px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 9px;
+    margin: 3px;
+    border-radius: 5px;
+    color: #3a2c8d;
+  }
+  .add-btn {
+    background: #3a2c8d;
+    color: white;
+    &:active{
+        background: #5947c2;
+    }
+  }
+  .update-btn {
+    background: white;
+    color: #3a2c8d;
+    &:active{
+        background: rgb(221, 221, 221);
+    }
+  }
+}
