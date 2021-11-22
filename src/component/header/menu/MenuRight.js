@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { Row, Col, Input, Badge, Avatar, Menu, Dropdown } from 'antd'
 import { CommentOutlined, BellOutlined, CaretDownOutlined } from '@ant-design/icons'
 
 import { logoutRequest } from '../../../redux/actions/authAction'
 
-export default function MenuRight() {
+export default function MenuRight(props) {
     const dispatch = useDispatch()
     const router = useRouter()
     const handleLogout = async ()=>{
@@ -59,7 +59,7 @@ export default function MenuRight() {
                                     <Col span={12}><Avatar style={{ cursor: 'pointer' }} src="https://joeschmoe.io/api/v1/random" /></Col>
                                     <Col span={12} style={{ fontSize: '1rem' }}>
                                         <Row>
-                                            <Col span={12}>Quân</Col>
+                                            <Col span={12}>{props.user.first_name}</Col>
                                             <Col span={12}>
                                                 <Dropdown overlay={menu} trigger={['click']}>
                                                     <a className="icon" onClick={e => e.preventDefault()}><CaretDownOutlined /></a>

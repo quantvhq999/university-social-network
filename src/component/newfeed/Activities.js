@@ -7,7 +7,6 @@ import ActivitiesItem from './ActivitiesItem';
 export default function Activities() {
     const dispatch = useDispatch()
     const activities = useSelector((state) => state.activitiesReducer)
-    console.log(activities.data)
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -42,7 +41,7 @@ export default function Activities() {
                itemClass="carousel-item-padding-40-px"
             >
                {activities.data.activities? activities.data.activities.map((item,index)=>{
-                   return <ActivitiesItem item={item}/>
+                   return <ActivitiesItem item={item} key={index}/>
                })
                 : <Skeleton active="true"/>
             }

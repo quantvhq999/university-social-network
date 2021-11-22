@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+.confidential-item{
+  margin-bottom: 15px;
+  transition: 150ms ease-in-out;
+  &:hover{
+    transform: scale(1.05)
+  }
+}
+.confidential-row {
+  .confidental-card {
+    max-width: 280px;
+    min-height: 100px;
+    max-height: 450px;
+    box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.07);
+    .ant-card-head{
+      background-color: rgb(92, 66, 238);
+      color: white;
+      .ant-card-head-title {
+        font-family: "Montserrat Medium";
+      }
+    }
+    
+    .confidental-card-content {
+      font-family: "Quicksand", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: gray;
+      display: -webkit-box;
+      max-width: 250px;
+      -webkit-line-clamp: 3; //15
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+}

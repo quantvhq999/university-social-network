@@ -7,6 +7,7 @@ export const loginUser = async (data) =>{
     let endpoint = `${API_URL+ url}login`
     return await axiosServices.post(endpoint, data).then((res) =>{
         Cookies.set('tlu_tk', res.data.access_token,{secure: true, sameSite: 'strict', expires: 30})
+        Cookies.set('tlu_id', res.data.user.mssv,{secure: true, sameSite: 'strict', expires: 30})
         return res.data
     })
 }
@@ -16,8 +17,8 @@ export const logoutUser = () =>{
         Cookies.remove('tlu_tk')
 }
 export const fetchUser = async (data) =>{
-    let endpoint = `${API_URL+ url + data.mssv}`
-    return await axiosServices.post(endpoint, data).then((res) =>{
-        console.log(res)
+    let endpoint = `${API_URL+ url+ data}`
+    return await axiosServices.get(endpoint).then((res) =>{
+        return res.data
     })
 }

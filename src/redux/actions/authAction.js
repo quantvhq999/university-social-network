@@ -49,15 +49,13 @@ export const logoutRequest = () => {
     
 }
 
-export const getUserRequest = (token) => {
-    // return (dispatch) => {
-    //     dispatch(fetchUser())
-    //     authApis.getUserByToken(token).then(
-    //         (res) => {
-    //             dispatch(fetchUserSuccess(res))
-    //         })
-    //         .catch(() => {
-    //             dispatch(fetchUserFail())
-    //         })
-    // }
+export const getUserRequest = (id) => {
+    return (dispatch) => {
+        dispatch(fetchUser())
+        authApis.fetchUser(id).then(res =>{
+            dispatch(fetchUserSuccess(res))
+        }).catch(err =>{
+            dispatch(fetchUserFail())
+        })
+    }
 }

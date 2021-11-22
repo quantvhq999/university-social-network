@@ -39,8 +39,6 @@ export default function ActivitiesItem(props) {
         <p>{props.item.time}</p>
         <span className="bold">Địa điểm: </span>
         <p>{props.item.location}</p>
-        <span className="bold">Đã tham gia: </span>
-        <p>{props.item.join}</p>
         <img src={props.item.image} />
       </Modal>
       <div className="activities-container" onClick={showModal}>
