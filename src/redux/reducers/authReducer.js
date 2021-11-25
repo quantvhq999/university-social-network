@@ -23,7 +23,8 @@ export default function authReducer(state = initialState, action) {
             return{
                 ...state,
                 isLoggedIn: false,
-                token:null
+                token:null,
+                user:null
             }
         case AUTH.FETCH_USER_SUCCESS:
             return{

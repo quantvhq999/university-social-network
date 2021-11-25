@@ -15,6 +15,7 @@ export const loginUser = async (data) =>{
 export const logoutUser = () =>{
         console.log("delete")
         Cookies.remove('tlu_tk')
+        Cookies.remove('tlu_id')
 }
 export const fetchUser = async (data) =>{
     let endpoint = `${API_URL+ url+ data}`

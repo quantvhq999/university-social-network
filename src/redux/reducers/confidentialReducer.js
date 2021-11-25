@@ -52,6 +52,11 @@ const confidentialsReducer = (state = initialState, action) => {
                     ...state,
                     comments:payload.comments
                 }
+            case CONFIDENTIAL.POST_CONFIDENTIAL:
+                return {
+                    ...state,
+                    data: payload.post
+                }
         default:
             return state;
     }

@@ -17,7 +17,7 @@ export default function ConfidentialGroup(props) {
       className="confidential-row"
       gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
     >
-      {data.confidential ? (
+      {data && data.confidential ? (
         data.confidential.map((item, index) => {
           return (
             <Col className="gutter-row confidential-item" key={index} span={6}>

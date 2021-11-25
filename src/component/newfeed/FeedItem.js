@@ -12,8 +12,8 @@ export default function FeedItem(props) {
 
     const moreContent = (
         <div>
-            <a><p>Báo cáo</p></a>
-            <a><p>Báo cáo</p></a>
+            <a><p>Báo cáo bài viết</p></a>
+            <a><p>Copy link bài viết</p></a>
             <a><p>Báo cáo</p></a>
         </div>
     )

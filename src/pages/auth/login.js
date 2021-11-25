@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Input, Button, Checkbox, Space, Carousel, message } from "antd";
 
-import { loginRequest } from "../../redux/actions/authAction";
+import { getUserRequest, loginRequest } from "../../redux/actions/authAction";
 export default function Login() {
     const dispatch = useDispatch()
     const router = useRouter()
@@ -19,6 +19,7 @@ export default function Login() {
         dispatch(loginRequest(values)).then(() => {
             setIsLoading(false)
             setIsDisable(false)
+            dispatch(getUserRequest(values.mssv))
         }).catch(() => {
             setIsLoading(false)
             setIsDisable(false)

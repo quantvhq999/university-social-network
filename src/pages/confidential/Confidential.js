@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Tabs, Modal, Form, Input, Button } from "antd";
 import {
     FireOutlined,
@@ -8,21 +8,20 @@ import {
 } from "@ant-design/icons";
 import ConfidentialGroup from "./ConfidentialGroup";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchConfidentialsRequest } from "../../redux/actions/confidentialAction";
+import { fetchConfidentialsRequest, postConfidentialRequest } from "../../redux/actions/confidentialAction";
 import TextArea from "rc-textarea";
 const { TabPane } = Tabs;
 export default function Confidential() {
     ///State
     const [isModalVisible, setIsModalVisible] = useState(false);
-
+    const [post, setPost] = useState(false)
+    /// Hook
     const dispatch = useDispatch();
-    dispatch(fetchConfidentialsRequest());
-
-    /// Confidential form action
-    const onFinish = (values) => {
-        console.log('Success:', values);
-    };
-
+    
+    ///Handle load confidential
+    useEffect(() => {
+        dispatch(fetchConfidentialsRequest());
+    }, [post])
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
@@ -33,6 +32,16 @@ export default function Confidential() {
 
     const handleCancel = () => {
         setIsModalVisible(false);
+    };
+    /// Confidential form action
+    const onFinish = async (values) => {
+        try {
+            const rest = await dispatch(postConfidentialRequest(values))
+            handleCancel()
+            setPost(!post)
+        } catch (error) {
+            console.log('Post fail', error)
+        }
     };
 
     /// Handle form submit
@@ -115,7 +124,7 @@ export default function Confidential() {
                     }
                     key={2}
                 >
-                    Bài viết thịnh hành
+                    <ConfidentialGroup />
                 </TabPane>
                 <TabPane
                     tab={
@@ -127,7 +136,7 @@ export default function Confidential() {
                     }
                     key={3}
                 >
-                    <p>Tất cả bài viết</p>
+                    <ConfidentialGroup />
                 </TabPane>
                 <TabPane
                     tab={
@@ -139,7 +148,7 @@ export default function Confidential() {
                     }
                     key={4}
                 >
-                    Bài viết của bạn
+                    <ConfidentialGroup />
                 </TabPane>
             </Tabs>
         </div>
