@@ -12,11 +12,8 @@ const fetchConfidentialsFailed = () => ({
     type: CONFIDENTIAL.FETECH_CONFIDENTIAL_FAILED
 })
 
-const fetchComments = () => ({
-    type: CONFIDENTIAL.FETECH_CONFIDENTIAL
-})
 const fetchCommentsSuccess = (data) => ({
-    type: CONFIDENTIAL.FETECH_CONFIDENTIAL_SUCCES,
+    type: CONFIDENTIAL.FETCH_COMMENTS_SUCCES,
     payload: { comments: data }
 })
 const fetchCommentsFailed = () => ({
@@ -38,14 +35,20 @@ export const fetchConfidentialsRequest = () =>async (dispatch) => {
 
 }
 export const fetchCommentsRequest = (id) =>async (dispatch) => {
-    console.log(id)
-    // dispatch(fetchComments())
-    // return await confidentialsApis.fetchComment(id).then((res) => {
-    //     dispatch(fetchCommentsSuccess(res))
-    // }).catch(() => {
-    //     dispatch(fetchCommentsFailed())
-    // })
+    return confidentialsApis.fetchComment(id).then((res) => {
+        dispatch(fetchCommentsSuccess(res))
+    }).catch(() => {
+        dispatch(fetchCommentsFailed())
+    })
 
+}
+
+export const commentRequest = (data) => async (dispatch) =>{
+    return confidentialsApis.postConfidentialComment(data).then((res) => {
+        dispatch(fetchCommentsSuccess(res))
+    }).catch(() => {
+        dispatch(fetchCommentsFailed())
+    })
 }
 
 export const postConfidentialRequest = (data) => async (dispatch) =>{

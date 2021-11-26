@@ -47,11 +47,6 @@ const confidentialsReducer = (state = initialState, action) => {
                     data: {},
                     error: true
                 }
-            case CONFIDENTIAL.FETCH_COMMENTS_SUCCES:
-                return {
-                    ...state,
-                    comments:payload.comments
-                }
             case CONFIDENTIAL.POST_CONFIDENTIAL:
                 return {
                     ...state,

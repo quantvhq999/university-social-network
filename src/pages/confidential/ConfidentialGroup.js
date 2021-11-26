@@ -7,27 +7,37 @@ import { fetchConfidentialsRequest } from "../../redux/actions/confidentialActio
 
 export default function ConfidentialGroup(props) {
   const { data } = useSelector((state) => state.confidentialReducer);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(async () => {
-    const action = fetchConfidentialsRequest()
-    await dispatch(action)
-  }, [])
+    const action = fetchConfidentialsRequest();
+    await dispatch(action);
+  }, []);
   return (
     <Row
       className="confidential-row"
       gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
     >
       {data && data.confidential ? (
-        data.confidential.map((item, index) => {
-          return (
-            <Col className="gutter-row confidential-item" key={index} span={6}>
-            <ConfidentialItem data={item} />
-          </Col>
-          )
-        })
+        data.confidential
+          .sort((a, b) => {
+            const day = new Date(a.createdAt)
+            const last = new Date(b.createdAt)
+            return last - day;
+          })
+          .map((item, index) => {
+            return (
+              <Col
+                className="gutter-row confidential-item"
+                key={index}
+                span={6}
+              >
+                <ConfidentialItem data={item} />
+              </Col>
+            );
+          })
       ) : (
-        <div className="spin"> 
-          <Spin size="large"/>
+        <div className="spin">
+          <Spin size="large" />
         </div>
       )}
     </Row>

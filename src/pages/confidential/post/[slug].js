@@ -17,12 +17,12 @@ export default function Post() {
 
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.confidentialReducer);
-  const { post } = data;
 
   useEffect(async () => {
     const action = fetchConfidentialRequest(slug);
     await dispatch(action);
   }, []);
+  
   return (
     <div>
       <Head>
@@ -41,14 +41,14 @@ export default function Post() {
         </span>
         <span>
           <Divider className="confidential-post__head" orientation="left" plain>
-            {post ? post.title : ""}
+            {data && data.post ? data.post.title : ""}
           </Divider>
         </span>
 
         <div className="confidential-post__body">
-          <p>{post ? post.content : ""}</p>
+          <p>{data && data.post ? data.post.content : ""}</p>
         </div>
-        <ConfidentialComment comments={post ? post._id : ""} />
+        <ConfidentialComment />
       </div>
     </div>
   );
