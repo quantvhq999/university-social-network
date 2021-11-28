@@ -9,7 +9,6 @@ export default function confidential() {
             <Head>
                 <title>Tâm sự tuổi hồng</title>
             </Head>
-            <MenuTop/>
             <Confidential />
         </div>
     )

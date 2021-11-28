@@ -12,10 +12,12 @@ export default function MenuRight(props) {
     const handleLogout = async ()=>{
         dispatch(logoutRequest())
     }
+    const {user} = useSelector(state => state.authReducer)
+
     const menu = (
         <Menu style={{ textAlign: 'center' }}>
             <Menu.Item key="0">
-                <a href="#">Trang cá nhân</a>
+                <a onClick={()=>{router.push(`${user && user.mssv}`)}}>Trang cá nhân</a>
             </Menu.Item>
             <Menu.Divider />
             <Menu.Item key="1">
@@ -35,13 +37,6 @@ export default function MenuRight(props) {
         </Menu>
     );
     
-    const [count, setCount] = useState(1)
-    // useEffect(() => {
-    //     const intervalId = setInterval(() => {
-    //         setCount((t) => t + 1);
-    //     }, 1000);
-    //     return () => clearInterval(intervalId);
-    // }, [])
     return (
         <Row>
             <Col span={24} >
@@ -56,7 +51,7 @@ export default function MenuRight(props) {
                             </Col>
                             <Col span={14}>
                                 <Row style={{ width: '100%', height: '100%' }} align="middle" >
-                                    <Col span={12}><Avatar style={{ cursor: 'pointer' }} src="https://joeschmoe.io/api/v1/random" /></Col>
+                                    <Col onClick={()=>{router.push(`${user && user.mssv}`)}} span={12}><Avatar style={{ cursor: 'pointer' }} src="https://joeschmoe.io/api/v1/random" /></Col>
                                     <Col span={12} style={{ fontSize: '1rem' }}>
                                         <Row>
                                             <Col span={12}>{props.user.first_name}</Col>

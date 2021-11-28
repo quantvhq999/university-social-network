@@ -39,13 +39,12 @@ export default function ConfidentialComment() {
     /// fetch comment
     useEffect(async () => {
         await dispatch(fetchCommentsRequest(slug))
-      }, [comments])
-    useEffect(() => {
         if(comments && comments.comments && comments.comments.length > 0){
             setComments(comments.comments)
+        }else{
+            setComments([])
         }
     }, [comments])
-    
     const handleSubmit = () => {
         if (!value) {
             return;
@@ -74,7 +73,7 @@ export default function ConfidentialComment() {
     };
 
     return (
-        <>
+        <>  
             {commentsArr.length > 0 && <CommentList comments={commentsArr} />}
             <Comment
                 avatar={<Avatar src="https://joeschmoe.io/api/v1/random"/>}

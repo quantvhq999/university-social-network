@@ -8,7 +8,6 @@ export default function documents() {
             <Head>
                 <title>Tâm sự tuổi hồng</title>
             </Head>
-            <MenuTop/>
         </div>
     )
 }

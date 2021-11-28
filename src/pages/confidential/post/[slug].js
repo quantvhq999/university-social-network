@@ -28,7 +28,6 @@ export default function Post() {
       <Head>
         <title>Bài viết</title>
       </Head>
-      <MenuTop />
       <div className="confidential-post">
         <span>
           <Button
@@ -48,7 +47,7 @@ export default function Post() {
         <div className="confidential-post__body">
           <p>{data && data.post ? data.post.content : ""}</p>
         </div>
-        <ConfidentialComment />
+        <ConfidentialComment  />
       </div>
     </div>
   );

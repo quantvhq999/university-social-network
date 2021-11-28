@@ -1,0 +1,70 @@
+$primary-color: #3a2c8d;
+$hover-color: #4837a7;
+
+.btn-primary {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
+  padding: 1.75vh;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 500;
+  transition: none;
+  color: white;
+  background-color: $primary-color;
+  &:hover {
+    background-color: $hover-color;
+    color: white;
+  }
+  &:active {
+    transform: scale(0.95, 0.95);
+  }
+}
+.btn-light {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
+  padding: 1.75vh;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 500;
+  transition: none;
+  background-color: white;
+  color: $primary-color;
+  &:hover {
+    background-color: $primary-color;
+    color: white;
+  }
+  &:active {
+    color: white;
+    transform: scale(0.95, 0.95);
+  }
+}
+.btn-dark {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
+  padding: 1.75vh;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 500;
+  transition: none;
+  background-color: transparent;
+  color: $primary-color;
+  &:hover {
+    background-color: $hover-color;
+    color: white;
+  }
+  &:active {
+    transform: scale(0.95, 0.95);
+  }
+}

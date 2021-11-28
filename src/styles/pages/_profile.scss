@@ -1,0 +1,131 @@
+.profile-wrapper{
+    overflow-y: scroll;
+    height: 94vh;
+}
+.profile-container {
+  position: relative;
+  margin-left: 2vh;
+  margin-right: 2vh;
+  padding-bottom: 3vh;
+  
+  .profile-header {
+    position: relative;
+    height: 60vh;
+    .cover-image-container {
+        box-shadow: 0px 6px 6px 0px rgba(0,0,0,0.07);
+      height: 100%;
+      position: relative;
+      border-radius: 10px 10px 36px 36px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      &:hover {
+        cursor: pointer;
+      }
+      .edit-btn {
+        position: absolute;
+        top: calc(100% - 50px);
+        left: calc(100% - 196px);
+        background: white;
+        color: #3a2c8d;
+        border-radius: 5px;
+        font-weight: 500;
+      }
+    }
+    .avatar-container {
+      position: absolute;
+      border-radius: 15px;
+      width: 27vh;
+      height: 27vh;
+      background: white;
+      top: calc(100% - 13vh);
+      right: calc(100% - 37vh);
+      border: 6px solid white;
+      z-index: 10;
+      img {
+        border-radius: 15px;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+
+        &:hover {
+          cursor: pointer;
+          opacity: 0.9;
+        }
+        &:active {
+          transform: scale(0.9, 0.9);
+        }
+      }
+      .btn-add {
+        position: absolute;
+        top: calc(100% - 9vh);
+        right: calc(100% - 26vh);
+      }
+    }
+  }
+  .profile-info {
+    box-shadow: 0px 6px 6px 0px rgba(0,0,0,0.07);
+    padding-bottom: 1vh;
+    background-color: white;
+    border-radius: 15px;
+    height: 14vh;
+    margin-left: 23vh;
+    margin-right: 23vh;
+    .name {
+      font-weight: 500;
+      color: #3a2c8d;
+    }
+    .name,.class{
+        margin-left: 20vh;
+    }
+  }
+  .feature-group{
+      display: flex;
+      justify-content: space-around;
+  }
+}
+.circle {
+  border-radius: 50% !important;
+  img {
+    border-radius: 50% !important;
+  }
+}
+.custom {
+  border-radius: 30% 1% 30% 1% !important;
+  img {
+    border-radius: 30% 1% 30% 1% !important;
+  }
+}
+.btn-add {
+  background-color: #3a2c8d;
+  color: #ffffff;
+  border: unset;
+  &:hover {
+    outline: #3a2c8d !important;
+    border: unset;
+    background-color: #3a2c8d;
+    color: #ffffff;
+  }
+  &:active {
+    outline: #3a2c8d !important;
+    border: unset;
+    background-color: #3a2c8d;
+    color: #ffffff;
+  }
+  &:focus {
+    outline: #3a2c8d !important;
+    border: unset;
+    background-color: #3a2c8d;
+    color: #ffffff;
+  }
+}
+
+.profile-body{
+    display: flex;
+    justify-content: center;
+    .profile-body-container{
+        margin-top: 2vh;
+        width: 143vh;
+        height: 100vh;
+    }
+}
