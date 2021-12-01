@@ -22,7 +22,7 @@ export default function User() {
     <>
       <Head>
         <title>
-          {(user && user.last_name + " " + user.first_name + " | TLS") || "TLS"}
+          {(user && user.last_name + " " + user && user.last_name + " | TLS") || "TLS"}
         </title>
       </Head>
       <div className="profile-wrapper scroll-gray">
@@ -34,7 +34,7 @@ export default function User() {
           <div className="profile-info">
             <div>
               <h1 className="name">
-                {(user && user.last_name + " " + user.first_name) || ""}
+                {(user && (user.last_name + " " + user.first_name)) || ""}
               </h1>
               <h2 className="class">{"K59-TH01"}</h2>
             </div>
@@ -100,7 +100,7 @@ export default function User() {
           <div className="profile-body">
             <div className="profile-body-container">
               <Carousel dots={false} ref={slider}>
-                <Posts />
+                <Posts user={user}/>
                 <Introduce />
                 <Friends />
                 <Photos />

@@ -7,7 +7,9 @@ export default function NewsFeed() {
     return (
         <div style={{marginLeft:'6vh', marginRight:'6vh'}} className="feed_middle">
             <Activities />
+            <div style={{marginTop:'21px'}}>
             <NewPost />
+            </div>
             <Feed />
         </div>
     )

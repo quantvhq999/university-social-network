@@ -1,0 +1,26 @@
+.icon-text{
+    display: flex;
+    padding: 1.5vh;
+    align-items: center;
+    img{
+        max-width: 3vh;
+        min-width: 3vh;
+    }
+    span{
+        margin-left: 1vh;
+        font-size: 1rem;
+        color: black;
+        font-weight: 500;
+    }
+}
+.text-round{
+    padding: 0.75vh;
+    margin-top: 1vh;
+    span{
+        padding: 1.25vh;
+        font-size: 1rem;
+        color: white;
+        background-color: #3a2c8d;
+        border-radius: 50em;
+    }
+}

@@ -11,9 +11,15 @@ export default function MenuRight(props) {
     const router = useRouter()
     const handleLogout = async ()=>{
         dispatch(logoutRequest())
+        router.push('/')
     }
-    const {user} = useSelector(state => state.authReducer)
-
+    const {user, isLoggesIn} = useSelector(state => state.authReducer)
+    
+    useEffect(() => {
+        if (!isLoggesIn) {
+            router.push('/')
+        }
+    }, [isLoggesIn])
     const menu = (
         <Menu style={{ textAlign: 'center' }}>
             <Menu.Item key="0">
@@ -54,7 +60,7 @@ export default function MenuRight(props) {
                                     <Col onClick={()=>{router.push(`${user && user.mssv}`)}} span={12}><Avatar style={{ cursor: 'pointer' }} src="https://joeschmoe.io/api/v1/random" /></Col>
                                     <Col span={12} style={{ fontSize: '1rem' }}>
                                         <Row>
-                                            <Col span={12}>{props.user.first_name}</Col>
+                                            <Col span={12}>{user && user.first_name}</Col>
                                             <Col span={12}>
                                                 <Dropdown overlay={menu} trigger={['click']}>
                                                     <a className="icon" onClick={e => e.preventDefault()}><CaretDownOutlined /></a>
