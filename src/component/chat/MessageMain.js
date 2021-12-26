@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-// import Picker from "emoji-picker-react";
+import Picker from "emoji-picker-react";
 import Message from "./components/Message";
 
 export default function MessageMain() {
@@ -59,7 +59,7 @@ export default function MessageMain() {
           >
             <img src="/assets/icon/emoji.png" />
           </div>
-          {/* {chosenEmoji ? (
+          {chosenEmoji ? (
             <div className="emoji-picker">
               <Picker
                 onEmojiClick={onEmojiClick}
@@ -70,7 +70,7 @@ export default function MessageMain() {
             </div>
           ) : (
             <></>
-          )} */}
+          )}
         </div>
       </div>
     </div>
