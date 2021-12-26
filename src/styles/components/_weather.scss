@@ -1,0 +1,31 @@
+@keyframes move {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+.weather {
+    display: flex;
+    align-items: center;
+  img {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(0px 10px 5px rgb(153, 153, 153));
+    animation: move 2s infinite;
+  }
+  .text{
+    h3,h2{
+        color: #3a2c8d;
+    }
+    span{
+        font-size: 5rem;
+    }
+    h2::first-letter{
+        text-transform:capitalize;
+    }
+  }
+}

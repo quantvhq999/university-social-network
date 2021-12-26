@@ -13,3 +13,17 @@ $primary-color: #3a2c8d;
     background-color: $primary-color;
   }
 }
+.scroll-dark {
+  &::-webkit-scrollbar-track {
+    border-radius: 15px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: #c0c0c0;
+  }
+}

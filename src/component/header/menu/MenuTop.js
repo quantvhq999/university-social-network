@@ -1,14 +1,16 @@
 import React, {useEffect, useState } from 'react'
 import { Row, Col } from 'antd'
-
+import { useRouter } from "next/router";
 import MenuLeft from './MenuLeft'
 import MenuRight from './MenuRight'
 import MenuMid from './MenuMid'
 import { useSelector } from 'react-redux'
+
 export default function MenuTop() {
     const {isLoggedIn} = useSelector(state => state.authReducer)
     const [menu, setMenu] = useState()
-   
+    const router = useRouter()
+    const query = router.pathname;
     useEffect(() => {
         if(isLoggedIn){
             setMenu(<Row className="homepage">
@@ -26,6 +28,12 @@ export default function MenuTop() {
             setMenu(null)
         }
     }, [isLoggedIn])
+
+    useEffect(() => {
+        if(query === '/admin'){
+            setMenu(null)
+        }
+    }, [query])
     return (
         <>
         {menu}

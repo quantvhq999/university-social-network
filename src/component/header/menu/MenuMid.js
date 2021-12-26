@@ -37,7 +37,7 @@ export default function MenuLMid() {
                             <Col span={6}>
                                 <div className='nav__menu--item---document'>
                                     <Tooltip title="Tài liệu" color={'#3a2c8d'} key={'#3a2c8d'}>
-                                        <a className="icon"> <BookOutlined /></a>
+                                        <a className="icon" onClick={()=>{router.push('/documents')}}> <BookOutlined /></a>
                                     </Tooltip>
                                 </div>
                             </Col>

@@ -1,7 +1,13 @@
 import { Button } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { CameraTwoTone } from "@ant-design/icons";
+import ModalImageUpdate from "./components/ModalImageUpdate";
 export default function CoverImage() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+      setIsModalVisible(true);
+  };
   return (
     <div
       className="cover-image-container"
@@ -12,9 +18,11 @@ export default function CoverImage() {
       <Button
         className="edit-btn"
         icon={<CameraTwoTone twoToneColor="#3a2c8d" />}
+        onClick={showModal}
       >
         Chỉnh sửa ảnh bìa
       </Button>
+      <ModalImageUpdate show={isModalVisible} setShow={setIsModalVisible} title={'Cập nhật ảnh bìa'}/>
     </div>
   );
 }

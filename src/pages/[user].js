@@ -22,7 +22,7 @@ export default function User() {
     <>
       <Head>
         <title>
-          {(user && user.last_name + " " + user && user.last_name + " | TLS") || "TLS"}
+          {(user && (user.last_name + " " + user.first_name)+ " | TLS") || "TLS"}
         </title>
       </Head>
       <div className="profile-wrapper scroll-gray">

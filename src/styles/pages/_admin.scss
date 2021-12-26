@@ -1,0 +1,82 @@
+.admin-login {
+  position: absolute;
+  top: calc(100% - 69vh);
+  left: calc(100% - 59vw);
+  padding: 20px;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.07);
+  width: 37vh;
+}
+.admin-container {
+  .admin-sidebar {
+    padding: 2vh;
+    &__header {
+      display: flex;
+      justify-content: center;
+    }
+    &__body{
+        background-color: white;
+        border-radius: 10px;
+        margin-top: 2vh;
+        height: 80vh;
+        ul{
+            list-style: none;
+            padding: 0;
+            li{
+                border-radius: 5px;
+                padding: 1vh 3px;
+                text-align: center;
+                margin-bottom: 1vh;
+                font-size: 1.25rem;
+                cursor: pointer;
+                &:hover{
+                    background-color: #3A2C8D;
+                    color: white;
+                }
+            }
+        }
+    }
+  }
+  .admin-header{
+      margin: 2vh 2vh 0 0;
+      display: flex;
+      justify-content: space-between;
+  }
+  .admin-main{
+    .main-feature{
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 2vh;
+        &__item{
+            display: flex;
+            width: 36vh;
+            align-items: center;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 150ms ease-in-out;
+            &:hover{
+                transform: translateY(-3px);
+            }
+        }
+    }
+    .main-analyst{
+        .analyst{
+            text-align: center !important;
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+  }
+  .admin-main, .admin-students, .admin-groups, .admin-feedback, .admin-library, .admin-activities, .admin-banners{
+    margin: 2vh 2vh 0 0;
+  }
+  .admin-head{
+    display: flex;
+    
+  }
+  .admin-table{
+    margin-top: 2vh;
+    height: 79vh;
+  }
+}
+
+

@@ -15,11 +15,6 @@ export default function MenuRight(props) {
     }
     const {user, isLoggesIn} = useSelector(state => state.authReducer)
     
-    useEffect(() => {
-        if (!isLoggesIn) {
-            router.push('/')
-        }
-    }, [isLoggesIn])
     const menu = (
         <Menu style={{ textAlign: 'center' }}>
             <Menu.Item key="0">
