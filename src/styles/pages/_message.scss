@@ -11,14 +11,7 @@
       }
     }
     &__search {
-      input {
-        width: 100%;
-        outline: none;
-        border: none;
-        border-radius: 2vh;
-        padding: 1vh;
-        background-color: rgb(241, 241, 241);
-      }
+      text-align: center;
     }
     &__chat {
       margin-top: 1.5vh;
@@ -106,8 +99,8 @@
         p{
             border-radius: 10px;
             padding: 0.7rem;
-            background-color: #3A2C8D;
-            color: white;
+            background-color: #dbdbdb;
+            color: black;
         }
       }
       .message-text-own{
@@ -116,16 +109,45 @@
         p{
             border-radius: 10px;
             padding: 0.7rem;
-            background-color: #dbdbdb;
-            color: rgb(0, 0, 0);
+            background-color: #3A2C8D;
+            color: white;
         }
       }
     }
   }
   .message-detail {
     margin-left: 1vh;
-    h1 {
-      text-align: center;
+    height: 90vh;
+    .list-friends{
+      .list-friends-items{
+        display: flex;
+        align-items: center;
+        margin-bottom: 1vh;
+        cursor: pointer;
+        &:hover{
+          background-color: rgb(230, 230, 230);
+        }
+        .active-dot{
+          position: absolute;
+          padding: 0.5em;
+          border-radius: 50%;
+          background-color: rgb(4, 212, 4);
+          right: calc(100% - 70px);
+        }
+        .friend-avatar{
+          width: 7vh;
+          height: 7vh;
+          img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+        h4{
+          margin-left: 1vw;
+        }
+      }
     }
     &__head {
       display: flex;

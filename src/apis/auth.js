@@ -23,3 +23,17 @@ export const fetchUser = async (data) =>{
         return res.data
     })
 }
+
+export const fetchUserInfo = async (data) =>{
+    let endpoint = API_URL+`auth/user/${data}`
+    return await axiosServices.get(endpoint).then((res) =>{
+        return res.data
+    })
+}
+
+export const fetchFriends = async (data) =>{
+    let endpoint = API_URL +`user/friends/${data}`
+    return await axiosServices.get(endpoint).then((res) =>{
+        return res.data
+    })
+}
