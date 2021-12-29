@@ -2,7 +2,7 @@ import { Col, Row } from 'antd'
 import React from 'react'
 import IconText from '../items/IconText'
 import TextRound from '../items/TextRound'
-import FeedItem from '../newfeed/FeedItem'
+import Feed from '../newfeed/Feed'
 import NewPost from '../newfeed/NewPost'
 
 const dummy = ['https://res.cloudinary.com/tlus-image/image/upload/v1638372939/2_d6tqgv.jpg',
@@ -67,14 +67,7 @@ export default function Posts(props) {
                         <NewPost />
                     </div>
                     <div className="profile-post__posts">
-                        <FeedItem />
-                        <FeedItem />
-                        <FeedItem />
-                        <FeedItem />
-                        <FeedItem />
-                        <FeedItem />
-                        <FeedItem />
-                        <FeedItem />
+                        <Feed/>
                     </div>
                 </Col>
             </Row>

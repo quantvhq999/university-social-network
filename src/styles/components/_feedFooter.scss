@@ -15,11 +15,22 @@
       display: grid;
       margin-right: 0.75rem;
       font-size: 2rem !important;
-      .up_arrow,
+      .up{
+        color: #4ff378 !important;
+      }
+      .down{
+        color: #e02746 !important;
+      }
+      .up_arrow{
+        cursor: pointer;
+        &:hover {
+          color: #4ff378;
+        }
+      }
       .down_arrow {
         cursor: pointer;
-        &:active {
-          color: #4ff378;
+        &:hover {
+          color: #e02746;
         }
       }
     }
