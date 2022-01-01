@@ -10,14 +10,7 @@ export default function DocumentFilter() {
             <Select placeholder='Lọc theo chuyên ngành' style={{ width: '100%' }}>
                 <Option value="-1">Tất cả</Option>
                 <Option value="jack">Công nghệ thông tin</Option>
-                <Option value="lucy">Kết Toán</Option>
-                <Option value="Yiminghe">Hacker</Option>
-            </Select>
-            <Select placeholder='Lọc theo chuyên ngành' style={{ width: '100%' }}>
-                <Option value="-1">Tất cả</Option>
-                <Option value="jack">Công nghệ thông tin</Option>
-                <Option value="lucy">Kết Toán</Option>
-                <Option value="Yiminghe">Hacker</Option>
+                <Option value="lucy">Kế Toán</Option>
             </Select>
         </div>
     )
