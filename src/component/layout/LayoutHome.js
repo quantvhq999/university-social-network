@@ -48,25 +48,25 @@ export default function LayoutHome(props) {
                         <h2>PHÂN HIỆU ĐẠI HỌC THỦY LỢI</h2>
                     </div>
                     <div className='container__right__body'>
-                        <Carousel autoplay >
+                        <Carousel autoplay>
                             <div>
-                                <div className="container__right__body--slideShow">
-                                    <img src="/assets/image/1.jpg" />
+                                <div className="container__right__body slideShow">
+                                    <img src="https://res.cloudinary.com/tlus-image/image/upload/v1640958235/244548751_4365373376911392_8812946221191053123_n_xk0ono.png" />
                                 </div>
                             </div>
                             <div>
-                                <div className="container__right__body--slideShow">
-                                    <img src="/assets/image/2.jpg" />
+                                <div className="container__right__body slideShow">
+                                    <img src="https://res.cloudinary.com/tlus-image/image/upload/v1640958234/248559462_4410220855759977_749277871887962613_n_t5mf0t.jpg" />
                                 </div>
                             </div>
                             <div>
-                                <div className="container__right__body--slideShow">
-                                    <img src="/assets/image/3.jpg" />
+                                <div className="container__right__body slideShow">
+                                    <img src="https://res.cloudinary.com/tlus-image/image/upload/v1640958236/268555445_4582974718484589_6781083693209655079_n_zj93jl.jpg" />
                                 </div>
                             </div>
                             <div>
-                                <div className="container__right__body--slideShow">
-                                    <img src="/assets/image/4.jpg" />
+                                <div className="container__right__body slideShow">
+                                    <img src="https://res.cloudinary.com/tlus-image/image/upload/v1640958236/Phan-hieu-45-nam-xay-dung-va-phat-trien-768x423_efhqov.jpg" />
                                 </div>
                             </div>
                         </Carousel>

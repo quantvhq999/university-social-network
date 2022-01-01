@@ -6,36 +6,19 @@ export default function Message(props) {
     return (
         <div className="message-container">
             <div className="astir">
-                <p><b style={{ margin: "1rem" }}>Hoạt động khác</b></p>
+                <p><b style={{ margin: "1rem" }}>Hoạt động chung</b></p>
                 <div className="astir-items">
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Tìm đồng đội leo rank ưu tiên nữ" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Câu lạc bộ những người yêu nồi cơm điện tuyển thành viên" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Tìm người yêu ra mắt gia đình" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Tìm bạn nhậu chí cốt" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Cần khoảng 50 bạn đi tỷ thí võ công" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Hacker đây" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Trứng rán cần mỡ bắp cần bơ" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="提供日本时事新闻、娱乐快报、潮流趋势、传统与流行文化、科学技术、旅游美食、生活方式等方面的信息" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Tìm đồng đội leo rank ưu tiên nữ" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Câu lạc bộ những người yêu nồi cơm điện tuyển thành viên" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Tìm người yêu ra mắt gia đình" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Tìm bạn nhậu chí cốt" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Cần khoảng 50 bạn đi tỷ thí võ công" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Hacker đây" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Trứng rán cần mỡ bắp cần bơ" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="提供日本时事新闻、娱乐快报、潮流趋势、传统与流行文化、科学技术、旅游美食、生活方式等方面的信息" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Tìm đồng đội leo rank ưu tiên nữ" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Câu lạc bộ những người yêu nồi cơm điện tuyển thành viên" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Tìm người yêu ra mắt gia đình" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Tìm bạn nhậu chí cốt" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Cần khoảng 50 bạn đi tỷ thí võ công" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Hacker đây" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Trứng rán cần mỡ bắp cần bơ" />
-                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="提供日本时事新闻、娱乐快报、潮流趋势、传统与流行文化、科学技术、旅游美食、生活方式等方面的信息" />
+                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Cần 1 bạn đến thư viện phụ chút việc" />
+                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Lớp 59TH ai rảnh ra cafe đầu trường" />
+                    <MessageAstir avatar="https://joeschmoe.io/api/v1/random" message="Ai nhặt được thẻ xe số 123 không?" />
                 </div>
             </div>
             <div className="message">
-            <p><b style={{ margin: "1rem" }}>Tin nhắn</b></p>
+            <p><b style={{ margin: "1rem" }}>Tin nhắn chung</b></p>
+            <div className='local_message'>
+            <textarea placeholder='Nhập nội dung'/>
+            <Button type="primary" style={{marginLeft: "1vh"}}>Đăng</Button>
+            </div>
             </div>
         </div>
     )

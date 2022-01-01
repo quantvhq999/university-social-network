@@ -47,12 +47,9 @@ export default function MenuRight(props) {
                             <Col span={5}>
                                 <a className="icon"><CommentOutlined /></a>
                             </Col>
-                            <Col span={5}>
-                                <a className="icon"><BellOutlined /></a>
-                            </Col>
                             <Col span={14}>
                                 <Row style={{ width: '100%', height: '100%' }} align="middle" >
-                                    <Col onClick={()=>{router.push(`${user && user.mssv}`)}} span={12}><Avatar style={{ cursor: 'pointer' }} src="https://joeschmoe.io/api/v1/random" /></Col>
+                                    <Col onClick={()=>{router.push(`${user && user.mssv}`)}} span={12}><Avatar style={{ cursor: 'pointer' }} src={user?.avatar} /></Col>
                                     <Col span={12} style={{ fontSize: '1rem' }}>
                                         <Row>
                                             <Col span={12}>{user && user.first_name}</Col>

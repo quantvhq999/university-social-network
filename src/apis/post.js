@@ -19,3 +19,9 @@ export const getPost = async (id) =>{
         return res.data
     })
 }
+export const getPostProfile = async (id) =>{
+    const url = API_URL + "posts/user/"+id
+    return axiosServices.get(url).then(res =>{
+        return res.data
+    })
+}

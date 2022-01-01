@@ -2,9 +2,10 @@ import { Button } from "antd";
 import React, { useState } from "react";
 import { CameraTwoTone } from "@ant-design/icons";
 import ModalImageUpdate from "./components/ModalImageUpdate";
-export default function CoverImage() {
+import { useSelector } from "react-redux";
+export default function CoverImage(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const {user} = props
   const showModal = () => {
       setIsModalVisible(true);
   };
@@ -12,7 +13,7 @@ export default function CoverImage() {
     <div
       className="cover-image-container"
       style={{
-        backgroundImage: `url('https://res.cloudinary.com/tlus-image/image/upload/v1637611882/1_vzzaaj.jpg')`,
+        backgroundImage: `url('${user && user.cover}')`,
       }}
     >
       <Button

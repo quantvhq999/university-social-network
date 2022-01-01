@@ -42,14 +42,13 @@ export default function MenuItem() {
   return (
     <div className="menu">
       <Item
-        url={"https://joeschmoe.io/api/v1/random"}
+        url={user?.avatar}
         title={user ? user.last_name + " " + user.first_name : ""}
         type={""}
         to={user && user.mssv}
       />
       <Item url={'/assets/icon/message.png'} title={'Tin nhắn'} type={"square"} to={'message'}/>
       <Item url={"/assets/icon/friends.png"} title={"Bạn bè"} type={"square"} to={false}/>
-      <Item url={"/assets/icon/group.png"} title={"Nhóm"} to={false}/>
       <Item
         url={"/assets/icon/file.png"}
         title={"Thư viện tài liệu"}

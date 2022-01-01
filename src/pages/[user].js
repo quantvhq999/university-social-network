@@ -1,6 +1,6 @@
 import { MoreOutlined } from "@ant-design/icons";
 import { Button, Carousel, Divider } from "antd";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Head from "next/head";
 import { useSelector } from "react-redux";
 import Avatar from "../component/profile/Avatar";
@@ -10,31 +10,48 @@ import Friends from "../component/profile/Friends";
 import Photos from "../component/profile/Photos";
 import Posts from "../component/profile/Posts";
 import Videos from "../component/profile/Videos";
+import { useRouter } from "next/router";
+import { fetchUserInfo } from "../apis/auth";
 
 export default function User() {
   /// Initials
   const { user } = useSelector((state) => state.authReducer);
   const [slide, setSlide] = useState(0);
+  const [userCurrent, setUserCurrent] = useState(user)
   /// Hooks
   const slider = useRef();
+  const router = useRouter();
+  const userView = router.query;
 
+  /// Effect get user
+  useEffect(() => {
+    const getUser = async () =>{
+      try {
+        const user = await fetchUserInfo(userView.user)
+        setUserCurrent(user)
+      } catch (error) {
+        console.log('Failed to get user', error)
+      }
+    }
+    getUser()
+  }, [userView])
   return (
     <>
       <Head>
         <title>
-          {(user && (user.last_name + " " + user.first_name)+ " | TLS") || "TLS"}
+          {(userCurrent && (userCurrent.last_name + " " + userCurrent.first_name)+ " | TLS") || "TLS"}
         </title>
       </Head>
       <div className="profile-wrapper scroll-gray">
         <div className="profile-container">
           <div className="profile-header">
-            <CoverImage />
-            <Avatar />
+            <CoverImage user={userCurrent}/>
+            <Avatar user={userCurrent}/>
           </div>
           <div className="profile-info">
             <div>
               <h1 className="name">
-                {(user && (user.last_name + " " + user.first_name)) || ""}
+                {(userCurrent && (userCurrent.last_name + " " + userCurrent.first_name)) || ""}
               </h1>
               <h2 className="class">{"K59-TH01"}</h2>
             </div>
@@ -91,20 +108,15 @@ export default function User() {
               </a>
             </div>
             <div>
-              <a className="btn-primary">Chỉnh sửa trang cá nhân</a>
-              <a style={{ marginLeft: "1vh" }} className="btn-primary">
-                <MoreOutlined />
-              </a>
             </div>
           </div>
           <div className="profile-body">
             <div className="profile-body-container">
               <Carousel dots={false} ref={slider}>
-                <Posts user={user}/>
+                <Posts user={userCurrent}/>
                 <Introduce />
-                <Friends />
+                <Friends user={userCurrent}/>
                 <Photos />
-                <Videos />
               </Carousel>
             </div>
           </div>

@@ -71,10 +71,12 @@
     &__body{
       height: 60%;
       width: 100%;
-      &--slideShow{
+      .slideShow{
+        width: 129vh;
+        height: 60vh;
         img{
-          max-width: 100%;
-          object-fit: contain;
+          width: 100%;
+          object-fit: cover;
         }
       }
     }
