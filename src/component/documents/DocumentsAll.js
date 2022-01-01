@@ -9,31 +9,12 @@ export default function DocumentsAll() {
             <Row>
                 <DocumentItem name='Lịch sử đảng'/>
                 <DocumentItem name='Khoa học máy tính'/>
-                <DocumentItem name='Toán 1'/>
-                <DocumentItem name='Toán 2'/>
-                <DocumentItem name='Toán 3'/>
-                <DocumentItem name='Toán 4'/>
-                <DocumentItem name='Toán 5'/>
+                <DocumentItem name='Giải tích hàm một biến'/>
+                <DocumentItem name='Giải tích hàm nhiều biến'/>
                 <DocumentItem name='Toán rời rạc'/>
                 <DocumentItem name='Xác suất thống kê'/>
                 <DocumentItem name='Lịch sử đảng'/>
                 <DocumentItem name='Khoa học máy tính'/>
-                <DocumentItem name='Toán 1'/>
-                <DocumentItem name='Toán 2'/>
-                <DocumentItem name='Toán 3'/>
-                <DocumentItem name='Toán 4'/>
-                <DocumentItem name='Toán 5'/>
-                <DocumentItem name='Toán rời rạc'/>
-                <DocumentItem name='Xác suất thống kê'/>
-                <DocumentItem name='Lịch sử đảng'/>
-                <DocumentItem name='Khoa học máy tính'/>
-                <DocumentItem name='Toán 1'/>
-                <DocumentItem name='Toán 2'/>
-                <DocumentItem name='Toán 3'/>
-                <DocumentItem name='Toán 4'/>
-                <DocumentItem name='Toán 5'/>
-                <DocumentItem name='Toán rời rạc'/>
-                <DocumentItem name='Xác suất thống kê'/>
             </Row>
         </div>
     )
