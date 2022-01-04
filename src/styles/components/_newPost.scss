@@ -29,3 +29,12 @@
     color: #fff;
   }
 }
+.newpost-image{
+  width: 62vh;
+  height: 39vh;
+  img{
+    border-radius: 10px;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}

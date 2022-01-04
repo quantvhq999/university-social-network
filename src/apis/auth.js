@@ -37,3 +37,10 @@ export const fetchFriends = async (data) =>{
         return res.data
     })
 }
+
+export const fetchImages = async (data) =>{
+    let endpoint = API_URL +`user/image/${data}`
+    return await axiosServices.get(endpoint).then((res) =>{
+        return res.data
+    })
+}

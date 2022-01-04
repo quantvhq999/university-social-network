@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { getFeed, getPostProfile } from '../../apis/post'
 import FeedItem from './FeedItem'
 import { Spin, Alert } from 'antd';
+import { useSelector } from 'react-redux';
 
 export default function Feed(props) {
-    const {user, profile} = props
+    const {user, profile, type} = props
     const [posts, setPosts] = useState([])
+    const [reload, setReload] = useState(false)
     useEffect(() => {
         if(user){
             const getPosts = async () =>{
@@ -16,10 +18,10 @@ export default function Feed(props) {
         }
     }, [user])
     return (
-        <div className="feed-container">
+        <div className="feed-container" style={type==='profile'? {height: 'auto'}:{}}>
             {
                 posts && posts.length > 0 ? posts.map((post,index) =>(
-                    <FeedItem key={index} post={post} userCurrent={user}/>
+                    <FeedItem key={index} post={post} userCurrent={user} reload={reload} setLoad={setReload}/>
                 )): <Spin size='large' tip="Đang tải...">
                 <Alert
                   message=" "

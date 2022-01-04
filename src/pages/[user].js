@@ -18,6 +18,7 @@ export default function User() {
   const { user } = useSelector((state) => state.authReducer);
   const [slide, setSlide] = useState(0);
   const [userCurrent, setUserCurrent] = useState(user)
+  const [reload, setReload] = useState(0)
   /// Hooks
   const slider = useRef();
   const router = useRouter();
@@ -45,7 +46,7 @@ export default function User() {
       <div className="profile-wrapper scroll-gray">
         <div className="profile-container">
           <div className="profile-header">
-            <CoverImage user={userCurrent}/>
+            <CoverImage user={userCurrent} setLoad={setReload}/>
             <Avatar user={userCurrent}/>
           </div>
           <div className="profile-info">
@@ -113,7 +114,10 @@ export default function User() {
           <div className="profile-body">
             <div className="profile-body-container">
               <Carousel dots={false} ref={slider}>
-                <Posts user={userCurrent}/>
+                <Posts reload={reload} user={userCurrent} friend={() => {
+                  slider.current.goTo(2);
+                  setSlide(2);
+                }}/>
                 <Introduce />
                 <Friends user={userCurrent}/>
                 <Photos />

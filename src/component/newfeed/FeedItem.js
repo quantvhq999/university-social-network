@@ -10,17 +10,20 @@ import {
 import { fetchUserInfo } from "../../apis/auth";
 import moment from "moment";
 import "moment/locale/vi";
-import { votePost } from "../../apis/post";
+import { deletePost, votePost } from "../../apis/post";
+import { useSelector } from "react-redux";
 
 const Context = React.createContext({ name: 'Default' });
 
 export default function FeedItem(props) {
-  const { post, userCurrent } = props;
+  const { post, userCurrent, reload, setLoad } = props;
+  const userUse = useSelector(state => state.authReducer.user)
   const [currentPost, setCurrentPost] = useState(post);
   const [user, setUser] = useState({});
   const [more, setMore] = useState(false);
   const [vote, setVote] = useState(0);
   const [isVote, setIsVote] = useState(null);
+  const [isComment, setIsComment] = useState(false)
   moment.locale("vi");
 
   /// Notification
@@ -32,6 +35,15 @@ export default function FeedItem(props) {
     });
   };
 
+  /// Handle delete post
+  const handleDeletePost = async () =>{
+    try {
+      const res = await deletePost(currentPost._id)
+      setLoad(!reload)
+    } catch (error) {
+      console.log('Failed to delete post', error)
+    }
+  }
   /// Handle more
   const handleVisibleChange = () => {
     setMore(!more);
@@ -105,7 +117,10 @@ export default function FeedItem(props) {
         <p>Copy link bài viết</p>
       </a>
       <a>
-        <p>Báo cáo</p>
+        {currentPost?.mssv == userUse?.mssv?
+        <p onClick={()=>handleDeletePost()}>Xóa bài viết</p>  
+        :<p>Truy cập bài viết</p>
+      }
       </a>
     </div>
   );

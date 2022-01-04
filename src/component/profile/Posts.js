@@ -1,7 +1,7 @@
 import { Col, Row } from 'antd'
 import { Router, useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
-import { fetchFriends } from '../../apis/auth'
+import { fetchFriends, fetchImages } from '../../apis/auth'
 import IconText from '../items/IconText'
 import TextRound from '../items/TextRound'
 import Feed from '../newfeed/Feed'
@@ -22,9 +22,9 @@ const dummy = ['https://res.cloudinary.com/tlus-image/image/upload/v1638372939/2
 ]
 export default function Posts(props) {
     /// Initials
-    const { user } = props
+    const { user, friend, reload } = props
     const [friends, setFriends] = useState([])
-
+    const [images, setImages] = useState([])
     /// Hook
     const router = useRouter()
     /// Handle friend
@@ -46,6 +46,17 @@ export default function Posts(props) {
         }
         getFriends()
     }, [user])
+    useEffect(() => {
+        const getImages = async () => {
+            try {
+                const res = await fetchImages(user?.mssv)
+                setImages(res)
+            } catch (error) {
+                console.log('Failed to get friends', error)
+            }
+        }
+        getImages()
+    }, [user])
     return (
         <div className="profile-post">
             <Row>
@@ -61,17 +72,18 @@ export default function Posts(props) {
                             <TextRound text={'Đá bóng'} />
                             <TextRound text={'Ngủ'} />
                         </Row>
+                        <a>Cập nhật sở thích</a>
                     </div>
                     <div className="profile-post__introduce" style={{ marginTop: '1em' }}>
                         <h2>Ảnh</h2>
                         <Row>
-                            {dummy.slice(0, 9).map((image) => (
+                            {images.map((image) => (
                                 <div className='preview-image'>
-                                    <img src={image} />
+                                    <img src={image.image} />
                                 </div>
                             ))}
                         </Row>
-                        <a href="#">Xem thêm</a>
+                        <a onClick={()=>friend()}>Xem thêm</a>
                     </div>
                     <div className="profile-post__introduce" style={{ marginTop: '1em' }}>
                         <h2>Bạn bè</h2>
@@ -84,7 +96,7 @@ export default function Posts(props) {
                                 </div>
                             ))}
                         </Row>
-                        <a href="#">Xem thêm</a>
+                        <a >Xem thêm</a>
                     </div>
                 </Col>
                 <Col span={15}>
@@ -92,7 +104,7 @@ export default function Posts(props) {
                         <NewPost />
                     </div>
                     <div className="profile-post">
-                        <Feed user={user} profile={true}/>
+                        <Feed user={user} profile={true} reload={reload} type={'profile'}/>
                     </div>
                 </Col>
             </Row>

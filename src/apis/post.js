@@ -25,3 +25,24 @@ export const getPostProfile = async (id) =>{
         return res.data
     })
 }
+
+export const updateCover = async (data) =>{
+    const url = API_URL + "posts/cover/"+ `${data.mssv}`
+    return axiosServices.post(url,data.form).then(res =>{
+        return res.data
+    })
+}
+
+export const updateAvatar = async (data) =>{
+    const url = API_URL + "posts/avatar/"+ `${data.mssv}`
+    return axiosServices.post(url,data.form).then(res =>{
+        return res.data
+    })
+}
+
+export const deletePost = async (data) =>{
+    const url = API_URL + "posts/"+ `${data}`
+    return axiosServices.delete(url).then(res =>{
+        return res.data
+    })
+}
