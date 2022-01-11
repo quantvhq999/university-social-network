@@ -8,7 +8,7 @@ export default function Item(props) {
                 props.to === false ? 
                 '':router.push(`/${props.to}`)
             }}>
-                <Avatar src={props.url} shape={props.type} />
+                {props.url && <Avatar src={props.url} shape={props.type} />}
                 <span>{props.title}</span>
             </div>
     )

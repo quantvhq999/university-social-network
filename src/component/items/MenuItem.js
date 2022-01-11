@@ -48,7 +48,7 @@ export default function MenuItem() {
         to={user && user.mssv}
       />
       <Item url={'/assets/icon/message.png'} title={'Tin nhắn'} type={"square"} to={'message'}/>
-      <Item url={"/assets/icon/friends.png"} title={"Bạn bè"} type={"square"} to={false}/>
+      <Item url={"/assets/icon/friends.png"} title={"Bạn bè"} type={"square"} to={'friends'}/>
       <Item
         url={"/assets/icon/file.png"}
         title={"Thư viện tài liệu"}

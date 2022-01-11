@@ -44,3 +44,31 @@ export const fetchImages = async (data) =>{
         return res.data
     })
 }
+
+export const searchUser = async (data) =>{
+    let endpoint = API_URL +`user/${data}`
+    return await axiosServices.post(endpoint).then((res) =>{
+        return res.data
+    })
+}
+
+export const fetchFriendsRequest = async (data) =>{
+    let endpoint = API_URL +`user/request/${data}`
+    return await axiosServices.get(endpoint).then((res) =>{
+        return res.data
+    })
+}
+
+export const acceptRequest = async (data) =>{
+    let endpoint = API_URL +`user/friends/accept`
+    return await axiosServices.post(endpoint, data).then((res) =>{
+        return res.data
+    })
+}
+
+export const postRequest = async (data) =>{
+    let endpoint = API_URL +`user/friends/request`
+    return await axiosServices.post(endpoint, data).then((res) =>{
+        return res.data
+    })
+}

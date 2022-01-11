@@ -6,6 +6,7 @@
     box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.07);
     background: white;
     border-radius: 6px;
+    padding-bottom: 1vw;
     .just-title{
       padding: 167px;
       text-align: center;
@@ -52,5 +53,24 @@
           cursor: pointer;
       }
     }
+  }
+}
+.feed-comment{
+  margin: 2vh;
+  &__input{
+    display: flex;
+    align-items: center;
+    input{
+      margin-left: 1vw;
+    }
+  }
+}
+.comment-item{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1vh;
+  .text{
+    margin-left: 1vw;
+    background-color: #e7e7e7;
   }
 }

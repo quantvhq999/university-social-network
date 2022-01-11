@@ -1,0 +1,30 @@
+.friends-container{
+    margin: 2vh;
+    &__header{
+        display: flex;
+        align-items: center;
+        span{
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-left: 1vh;
+            color: #3A2C8D;
+        }
+    }
+    &__main{
+        margin-left: 1vh;
+    }
+    .friends-menu{
+        padding: 1rem;
+        border-radius: 10px;
+        color: #3A2C8D;
+        cursor: pointer;
+        &:hover{
+            color: white;
+            background-color: #3A2C8D;
+        }
+        &__text{
+            font-weight: bold;
+            font-size: 1rem;
+        }
+    }
+}

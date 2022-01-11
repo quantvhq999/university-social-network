@@ -1,0 +1,40 @@
+.friends-request {
+  &__container {
+  }
+}
+.friend-request {
+  width: 11vw;
+  height: auto;
+  margin-top: 1vh;
+  &__avatar {
+      width: 100%;
+      height: 13vh;
+      cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  &__feature{
+      display: flex;
+      justify-content: space-around;display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      button{
+        display: inline-block;
+        width: 100%;
+        border-radius: 5px;
+        border: unset;
+        margin: 0.1rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        font-weight: 500;
+      }
+  }
+}
+.primary{
+    background-color: #3a2c8d;
+    color: white;
+}
+
+.birthday-container{
+  margin-bottom: 1vh;
+}

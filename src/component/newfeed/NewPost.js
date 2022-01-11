@@ -1,49 +1,71 @@
 import { Avatar, Col, Input, Row, Modal, Button } from 'antd'
 import React, { useRef, useState } from 'react'
 import "../../../public/assets/icon/camera.png"
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import moment from 'moment';
+import { addPost } from '../../apis/post';
 
 
-export default function NewPost() {
+export default function NewPost(props) {
+    const { newPost } = props
     const { user } = useSelector(state => state.authReducer)
     const [isModalVisible, setIsModalVisible] = useState(false)
     const [file, setFile] = useState(null)
     const [imageUpload, setImageUpload] = useState(null)
-    const [title, setTitle] = useState(null)
+    const [title, setTitle] = useState('')
     const [loading, setLoading] = useState(false)
     const ref = useRef(null);
-
+    const dispatch = useDispatch()
     const showModal = () => {
         setIsModalVisible(true);
     };
 
-    const handleOk = () => {
-        console.log(imageUpload)
-        console.log(title)
-        setLoading(true)
+    const handleOk = async () => {
+        let formData = new FormData()
+        const request = `{"mssv": ${user.mssv},"title": "${title}"}`
+        if (imageUpload) {
+            formData.append('image', imageUpload)
+            formData.append('data', request)
+        } else if (title !== '') {
+            formData.append('data', request)
+        }
+        try {
+            setLoading(true)
+            const res = await addPost(formData)
+            if (res) {
+                newPost(res.data)
+                handleCancel()
+            }
+        } catch (error) {
+            console.log(error)
+        } finally {
+            setLoading(false)
+        }
     };
 
     const handleCancel = () => {
         setFile(null)
+        setLoading(false)
         setImageUpload(null)
         setIsModalVisible(false);
     };
 
     const handleClickUpload = () => {
         ref.current.click();
-      };
+    };
 
-    const handleFile = (e) =>{
+    const handleFile = (e) => {
         let reader = new FileReader();
         let files = e.target.files[0];
         reader.onloadend = () => {
             setFile(reader.result);
-          }
-          reader.readAsDataURL(files)
+            setImageUpload(files)
+        }
+        if (files) {
+            reader.readAsDataURL(files)
+        }
     }
-
-    const handleTitle = (value) =>{
+    const handleTitle = (value) => {
         setTitle(value)
     }
     return (
@@ -78,12 +100,12 @@ export default function NewPost() {
                     </Button>,
                 ]}
             >
-                <Input placeholder="Nội dung bài viết" onChange={(e)=> handleTitle(e.target.value)}/>
-                <input ref={ref} type={"file"} hidden accept="image/*" onChange={e =>handleFile(e)}/>
-                {file !== null? <div className='newpost-image'>
+                <Input placeholder="Nội dung bài viết" onChange={(e) => handleTitle(e.target.value)} />
+                <input ref={ref} type={"file"} hidden accept="image/*" onChange={e => handleFile(e)} />
+                {file !== null ? <div className='newpost-image'>
                     <img src={file} />
-                </div>:<></>}
-                <a className='btn-primary' onClick={()=>handleClickUpload()}>{file?'Chọn ảnh khác': 'Chọn ảnh'}</a>
+                </div> : <></>}
+                <a className='btn-primary' onClick={() => handleClickUpload()}>{file ? 'Chọn ảnh khác' : 'Chọn ảnh'}</a>
             </Modal>
         </div>
     )

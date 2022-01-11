@@ -27,11 +27,13 @@ export default function User() {
   /// Effect get user
   useEffect(() => {
     const getUser = async () =>{
-      try {
-        const user = await fetchUserInfo(userView.user)
-        setUserCurrent(user)
-      } catch (error) {
-        console.log('Failed to get user', error)
+      if(userView.user !== undefined || userView.user !== null){
+        try {
+          const user = await fetchUserInfo(userView.user)
+          setUserCurrent(user)
+        } catch (error) {
+          console.log('Failed to get user', error)
+        }
       }
     }
     getUser()

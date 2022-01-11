@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Avatar, Tooltip, Button, Popover , notification} from "antd";
+import { Avatar, Tooltip, Button, Popover, notification, Input } from "antd";
 import {
   MoreOutlined,
   MessageOutlined,
@@ -12,6 +12,9 @@ import moment from "moment";
 import "moment/locale/vi";
 import { deletePost, votePost } from "../../apis/post";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/dist/client/router";
+import CommentItem from "./CommentItem";
+import { API_URL } from "../../common/defines";
 
 const Context = React.createContext({ name: 'Default' });
 
@@ -24,10 +27,12 @@ export default function FeedItem(props) {
   const [vote, setVote] = useState(0);
   const [isVote, setIsVote] = useState(null);
   const [isComment, setIsComment] = useState(false)
+  const [showComment, setShowComment] = useState(false)
   moment.locale("vi");
-
+  const router = useRouter()
   /// Notification
   const openNotification = (placement) => {
+    navigator.clipboard.writeText('https://tls-sigma.vercel.app/' + `post/${currentPost._id}`)
     notification.success({
       message: `Thông báo`,
       description: "Sao chép đường dẫn thành công",
@@ -36,7 +41,7 @@ export default function FeedItem(props) {
   };
 
   /// Handle delete post
-  const handleDeletePost = async () =>{
+  const handleDeletePost = async () => {
     try {
       const res = await deletePost(currentPost._id)
       setLoad(!reload)
@@ -117,10 +122,10 @@ export default function FeedItem(props) {
         <p>Copy link bài viết</p>
       </a>
       <a>
-        {currentPost?.mssv == userUse?.mssv?
-        <p onClick={()=>handleDeletePost()}>Xóa bài viết</p>  
-        :<p>Truy cập bài viết</p>
-      }
+        {currentPost?.mssv == userUse?.mssv ?
+          <p onClick={() => handleDeletePost()}>Xóa bài viết</p>
+          : <p onClick={() => router.push(`/post/${currentPost._id}`)}>Truy cập bài viết</p>
+        }
       </a>
     </div>
   );
@@ -140,7 +145,7 @@ export default function FeedItem(props) {
               <b>{user && user.last_name + " " + user.first_name}</b>
             </a>
             <br />
-            <a className="feed-name__time">
+            <a className="feed-name__time" onClick={() => router.push(`/post/${currentPost._id}`)}>
               {moment
                 .utc(currentPost && currentPost.createdAt)
                 .local()
@@ -178,6 +183,7 @@ export default function FeedItem(props) {
           <></>
         )}
       </div>
+
       <div className="feed-item__footer">
         <div className="vote">
           <div className="vote-btn" style={{ fontSize: "1.25rem" }}>
@@ -192,13 +198,29 @@ export default function FeedItem(props) {
           </div>
           <b>{vote}</b>
         </div>
-        <div className="comment">
+        <div className="comment" onClick={() => setShowComment(true)}>
           <MessageOutlined /> Bình luận
         </div>
         <div className="share" onClick={() => openNotification('bottomLeft')}>
           <ShareAltOutlined /> Chia sẻ
         </div>
       </div>
+      <div className="feed-comment">
+        <div className="feed-comment__input">
+          <Avatar
+            size="large"
+            style={{ cursor: "pointer" }}
+            src={userCurrent && userCurrent.avatar}
+          />
+          <Input placeholder="Nhập bình luận..." />
+        </div>
+      </div>
+      {showComment ?
+        <div className="feed-comment">
+          <CommentItem />
+          <CommentItem />
+          <CommentItem />
+        </div> : <></>}
     </div>
   );
 }

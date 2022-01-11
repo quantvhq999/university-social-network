@@ -1,33 +1,31 @@
 import { Col, Row } from 'antd'
-import React from 'react'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
+import { fetchFriends } from '../../apis/auth'
 
-const dummy = ['https://res.cloudinary.com/tlus-image/image/upload/v1638372939/2_d6tqgv.jpg',
-    'https://res.cloudinary.com/tlus-image/image/upload/v1638372944/4_t0hmfh.jpg',
-    'https://res.cloudinary.com/tlus-image/image/upload/v1638099764/3_hnwghk.jpg',
-    'https://res.cloudinary.com/tlus-image/image/upload/v1637611882/1_vzzaaj.jpg',
-    'https://res.cloudinary.com/tlus-image/image/upload/v1638373794/selena-gomez-eating-icecream_4096x2734_xtrafondos.com_fk2mma.jpg',
-    'https://res.cloudinary.com/tlus-image/image/upload/v1638099764/3_hnwghk.jpg',
-    'https://res.cloudinary.com/tlus-image/image/upload/v1637611882/1_vzzaaj.jpg',
-    'https://res.cloudinary.com/tlus-image/image/upload/v1638373794/selena-gomez-eating-icecream_4096x2734_xtrafondos.com_fk2mma.jpg',
-    'https://res.cloudinary.com/tlus-image/image/upload/v1638372939/2_d6tqgv.jpg',
-    'https://res.cloudinary.com/tlus-image/image/upload/v1638372944/4_t0hmfh.jpg',
-    'https://res.cloudinary.com/tlus-image/image/upload/v1638099764/3_hnwghk.jpg',
-    'https://res.cloudinary.com/tlus-image/image/upload/v1637611882/1_vzzaaj.jpg'
-]
 
-export default function Friends() {
+export default function Friends(props) {
+    const {user} = props
+    const [listFriend, setListFriend] = useState(null)
+    const router = useRouter()
+    useEffect(async () => {
+        const res = await fetchFriends(router.query.user)
+        if(res){
+            setListFriend(res)
+        }
+    }, [user])
     return (
         <div className='profile-posts'>
             <Row>
                 <Col span={24}>
                 <div className='profile-introduce__overview' style={{ marginTop: '2em' }}>
                         <h2>Bạn bè</h2>
-                        <h3>5000 bạn</h3>
+                        <h3>{listFriend && listFriend.length} bạn</h3>
                         <Row>
-                            {dummy.map((image) => (
-                                <div className='preview-friends'>
-                                    <img src={image}/>
-                                    <span>Selena Gomez</span>
+                            {listFriend && listFriend.length > 0  && listFriend.map((friend) => (
+                                <div className='preview-friends' onClick={() => router.push(`/${friend.mssv}`)}>
+                                     <img src={friend.avatar} />
+                                    <span>{friend.last_name + " " + friend.first_name}</span>
                                 </div>
                             ))}
                         </Row>

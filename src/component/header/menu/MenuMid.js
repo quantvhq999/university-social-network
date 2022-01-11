@@ -23,7 +23,7 @@ export default function MenuLMid() {
                             <Col span={8}>
                                 <div className='nav__menu--item---friends'>
                                     <Tooltip title="Bạn bè" color={'#3a2c8d'} key={'#3a2c8d'}>
-                                        <a className="icon"><TeamOutlined /></a>
+                                        <a className="icon" onClick={()=>{router.push('/friends')}}><TeamOutlined /></a>
                                     </Tooltip>
                                 </div>
                             </Col>

@@ -9,7 +9,7 @@ export default function documents() {
     return (
         <div>
             <Head>
-                <title>Thư viện tài liệu</title>
+                <title>Thư viện tài liệu | TLS</title>
             </Head>
             <div className="documents-container">
                 <h2 style={{ textAlign: "center" }} className="title">

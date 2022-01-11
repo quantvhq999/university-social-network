@@ -5,7 +5,7 @@ import { Spin, Alert } from 'antd';
 import { useSelector } from 'react-redux';
 
 export default function Feed(props) {
-    const {user, profile, type} = props
+    const {user, profile, type, newPost} = props
     const [posts, setPosts] = useState([])
     const [reload, setReload] = useState(false)
     useEffect(() => {
@@ -19,6 +19,10 @@ export default function Feed(props) {
     }, [user])
     return (
         <div className="feed-container" style={type==='profile'? {height: 'auto'}:{}}>
+            {newPost?
+            <FeedItem post={newPost} userCurrent={user} reload={reload} setLoad={setReload}/>
+            :<></>
+            }
             {
                 posts && posts.length > 0 ? posts.map((post,index) =>(
                     <FeedItem key={index} post={post} userCurrent={user} reload={reload} setLoad={setReload}/>

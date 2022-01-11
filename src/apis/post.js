@@ -46,3 +46,10 @@ export const deletePost = async (data) =>{
         return res.data
     })
 }
+
+export const addPost = async (data) =>{
+    const url = API_URL + "posts"
+    return axiosServices.post(url, data).then(res =>{
+        return res.data
+    }).catch(error => console.log(error))
+}
