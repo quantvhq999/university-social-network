@@ -18,7 +18,7 @@ export default function MessageMain(props) {
   /// Ref
   const ref = useRef();
   const scrollRef = useRef();
-  const socket = useRef(io("ws://localhost:8900"));
+  const socket = useRef(io("ws://localhost:8600"));
 
   const onEmojiClick = (event, emojiObject) => {
     const cursor = ref.current.selectionStart;

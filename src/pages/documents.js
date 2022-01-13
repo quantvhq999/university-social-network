@@ -17,7 +17,7 @@ export default function documents() {
                 </h2>
                 <DocumentsHeader />
                 <DocumentFilter />
-                <DocumentsRecent />
+                {/* <DocumentsRecent /> */}
                 <DocumentsAll />
             </div>
         </div>

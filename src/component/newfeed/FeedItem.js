@@ -10,7 +10,7 @@ import {
 import { fetchUserInfo } from "../../apis/auth";
 import moment from "moment";
 import "moment/locale/vi";
-import { deletePost, votePost } from "../../apis/post";
+import { addComment, deletePost, getComments, votePost } from "../../apis/post";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/dist/client/router";
 import CommentItem from "./CommentItem";
@@ -28,6 +28,7 @@ export default function FeedItem(props) {
   const [isVote, setIsVote] = useState(null);
   const [isComment, setIsComment] = useState(false)
   const [showComment, setShowComment] = useState(false)
+  const [comments, setComments] = useState([])
   moment.locale("vi");
   const router = useRouter()
   /// Notification
@@ -47,6 +48,27 @@ export default function FeedItem(props) {
       setLoad(!reload)
     } catch (error) {
       console.log('Failed to delete post', error)
+    }
+  }
+
+  /// Handle comment
+  const handleComment = async (e) => {
+    if (e.key == 'Enter' && e.target.value !== '') {
+      try {
+        const request = {
+          mssv: userUse.mssv,
+          content: e.target.value,
+          id: post._id
+        }
+        const res = await addComment(request)
+        if(res){
+          setComments([res, ...comments])
+          setShowComment(true)
+          e.target.value = ''
+        }
+      } catch (error) {
+        console.log('Failed to comment', error)
+      }
     }
   }
   /// Handle more
@@ -85,8 +107,7 @@ export default function FeedItem(props) {
       } else if (type === "down") {
         setVote(vote - 1);
       }
-      // const res = await votePost(data)
-      // setCurrentPost(res.data)
+      const res = await votePost(data)
     } catch (error) {
       console.log("Failed to vote", error);
     }
@@ -113,6 +134,19 @@ export default function FeedItem(props) {
       }
     }
   }, [currentPost]);
+
+  /// Effect get comments
+  useEffect(async () => {
+    try {
+      const res = await getComments(post?._id)
+      if (res) {
+        setComments(res)
+      }
+    } catch (error) {
+      console.log('Failed to get comment', error)
+    }
+  }, [post])
+
   const moreContent = (
     <div>
       <a>
@@ -199,7 +233,7 @@ export default function FeedItem(props) {
           <b>{vote}</b>
         </div>
         <div className="comment" onClick={() => setShowComment(true)}>
-          <MessageOutlined /> Bình luận
+          <MessageOutlined /> Bình luận ({comments.length})
         </div>
         <div className="share" onClick={() => openNotification('bottomLeft')}>
           <ShareAltOutlined /> Chia sẻ
@@ -212,14 +246,14 @@ export default function FeedItem(props) {
             style={{ cursor: "pointer" }}
             src={userCurrent && userCurrent.avatar}
           />
-          <Input placeholder="Nhập bình luận..." />
+          <Input placeholder="Nhập bình luận..." onKeyDown={(e) => handleComment(e)} />
         </div>
       </div>
       {showComment ?
         <div className="feed-comment">
-          <CommentItem />
-          <CommentItem />
-          <CommentItem />
+          {comments && comments.length > 0 && comments.map((comment, index) => (
+            <CommentItem key={index} comment={comment} />
+          ))}
         </div> : <></>}
     </div>
   );

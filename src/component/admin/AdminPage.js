@@ -23,9 +23,6 @@ export default function AdminPage() {
                     {side === 2?<AdminStudents />:<></>}
                     {side === 3?<AdminActivities />:<></>}
                     {side === 4?<AdminLibrary />:<></>}
-                    {side === 5?<AdminGroups />:<></>}
-                    {side === 6?<AdminBanners />:<></>}
-                    {side === 7?<AdminFeedback />:<></>}
                 </Col>
             </Row>
         </div>

@@ -26,13 +26,6 @@ export default function MenuRight(props) {
             </Menu.Item>
             <Menu.Divider />
             <Menu.Item key="2">
-                <a href="#">Cài đặt</a>
-            </Menu.Item>
-            <Menu.Item key="3">
-                <a href="#">Màn hình</a>
-            </Menu.Item>
-            <Menu.Divider />
-            <Menu.Item key="4">
                 <a onClick={handleLogout}>Đăng xuất</a>
             </Menu.Item>
         </Menu>

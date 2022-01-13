@@ -53,3 +53,17 @@ export const addPost = async (data) =>{
         return res.data
     }).catch(error => console.log(error))
 }
+
+export const getComments = async (id) =>{
+    const url = API_URL + "posts/comments/"+id
+    return axiosServices.get(url).then(res =>{
+        return res.data
+    })
+}
+
+export const addComment = async (data) =>{
+    const url = API_URL + "posts/comment/"
+    return axiosServices.post(url,data).then(res =>{
+        return res.data
+    })
+}

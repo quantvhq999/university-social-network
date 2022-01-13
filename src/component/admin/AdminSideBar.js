@@ -13,9 +13,6 @@ export default function AdminSideBar(props) {
                     <li onClick={()=>side(2)}>Quản lý sinh viên</li>
                     <li onClick={()=>side(3)}>Quản lý hoạt động</li>
                     <li onClick={()=>side(4)}>Quản lý thư viện</li>
-                    <li onClick={()=>side(5)}>Quản lý nhóm</li>
-                    <li onClick={()=>side(6)}>Quản lý banner</li>
-                    <li onClick={()=>side(7)}>Góp ý</li>
                 </ul>
             </div>
         </div>

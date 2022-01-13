@@ -91,24 +91,6 @@ export default function User() {
               >
                 Bạn bè
               </a>
-              <a
-                className={`btn-${slide === 3 ? 'primary': 'dark'}`}
-                onClick={() => {
-                  slider.current.goTo(3);
-                  setSlide(3);
-                }}
-              >
-                Ảnh
-              </a>
-              <a
-                className={`btn-${slide === 4 ? 'primary': 'dark'}`}
-                onClick={() => {
-                  slider.current.goTo(4);
-                  setSlide(4);
-                }}
-              >
-                Video
-              </a>
             </div>
             <div>
             </div>

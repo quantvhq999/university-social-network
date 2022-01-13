@@ -7,7 +7,7 @@ import axios from "axios";
 import { useRouter } from "next/dist/client/router";
 
 const url =
-  "https://api.openweathermap.org/data/2.5/weather?q=Binh%20Duong&units=metric&lang=vi&appid=65acd53686a5876474975c0cce9e3ad1";
+  "https://api.openweathermap.org/data/2.5/weather?q=SaiGon&units=metric&lang=vi&appid=65acd53686a5876474975c0cce9e3ad1";
 export default function MenuItem() {
   const { user } = useSelector((state) => state.authReducer);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -61,12 +61,13 @@ export default function MenuItem() {
           <span>{"Tâm sự tuổi hồng"}</span>
         </div>
       </Link>
-      <Item
+      {/* <Item
         url={"/assets/icon/mailbox.png"}
         title={"Hộp thư góp ý"}
         type={"square"}
         to={false}
-      />
+        on
+      /> */}
       <div onClick={showModal}>
         <Item
           url={"/assets/icon/sun.png"}

@@ -87,9 +87,6 @@ export default function ModalImageUpdate(props) {
             </button>
           </div>
         </TabPane>
-        <TabPane tab="Chọn ảnh" key="2">
-          Content of Tab Pane 2
-        </TabPane>
       </Tabs>
     </Modal>
   );
