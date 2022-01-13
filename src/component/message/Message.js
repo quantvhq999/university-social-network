@@ -52,16 +52,16 @@ export default function Message(props) {
     }, [user]);
 
     /// Effect connect
-    // useEffect(() => {
-    //     socket.current = io("ws://localhost:8600");
-    //     socket.current.on("getMessage", (data) => {
-    //         setArrivalMessage({
-    //             sender: data.senderId,
-    //             text: data.text,
-    //             createAt: Date.now(),
-    //         });
-    //     });
-    // }, []);
+    useEffect(() => {
+        socket.current = io("ws://localhost:8600");
+        socket.current.on("getMessage", (data) => {
+            setArrivalMessage({
+                sender: data.senderId,
+                text: data.text,
+                createAt: Date.now(),
+            });
+        });
+    }, []);
 
     /// Effect get message
     useEffect(() => {
